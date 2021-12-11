@@ -19,7 +19,7 @@ const cloudImages = [
 class Cloud {
   constructor(x, y, img, speed) {
     this.x = x;
-    this.y = y;
+    this.y = y; // in percentage, will be multiplied with window height
     this.img = img;
     this.speed = speed;
   }
@@ -34,16 +34,13 @@ class Cloud {
 }
 
 export default function CloudsBG() {
-  const [listOfClouds, setListOfClouds] = useState([
-    new Cloud(-50, 60, cloudImages[0], 2),
-    new Cloud(-150, 300, cloudImages[1], 2),
-  ]);
+  const [listOfClouds, setListOfClouds] = useState([]);
 
   const moveClouds = () => {
     let tempList = listOfClouds;
     tempList.forEach((cloud) => {
       if (cloud.isOutOfBounds()) {
-        cloud.x = -150;
+        cloud.x = -100;
       } else {
         cloud.x += cloud.speed
       }
@@ -53,9 +50,27 @@ export default function CloudsBG() {
   }
 
   useEffect(() => {
+    setListOfClouds([
+      new Cloud(-0.1 * window.innerWidth, 0.05, cloudImages[0], 1.1),
+      new Cloud(0.2 * window.innerWidth, 0.1, cloudImages[2], 0.7),
+      new Cloud(0.6 * window.innerWidth, 0.15, cloudImages[4], 1.1),
+      new Cloud(0.78* window.innerWidth, 0.2, cloudImages[1], 1.1),
+      new Cloud(-0.4 * window.innerWidth, 0.25, cloudImages[3], 0.7),
+      new Cloud(0.3 * window.innerWidth, 0.3, cloudImages[4], 1.1),
+      new Cloud(0.7 * window.innerWidth, 0.35, cloudImages[0], 1.1),
+      new Cloud(-0.3 * window.innerWidth, 0.4, cloudImages[2], 1.1),
+      new Cloud(0.3 * window.innerWidth, 0.45, cloudImages[1], 1.1),
+      new Cloud(0.5 * window.innerWidth, 0.5, cloudImages[1], 0.7),
+      new Cloud(-0.2 * window.innerWidth, 0.55, cloudImages[3], 1.1),
+      new Cloud(0 * window.innerWidth, 0.6, cloudImages[4], 0.7),
+      new Cloud(0.1 * window.innerWidth, 0.35, cloudImages[3], 1.1),
+    ])
+  }, [])
+
+  useEffect(() => {
     let timer = setInterval(() => {
       moveClouds();
-    }, 50);
+    }, 35);
 
     return () => {
       clearInterval(timer)
@@ -68,7 +83,7 @@ export default function CloudsBG() {
       {listOfClouds.map((cloud) => {
         return <img src={cloud.img} style={{
           position: 'absolute',
-          top: cloud.y,
+          top: window ? window.innerHeight * cloud.y : 0,
           left: cloud.x,
           right: 0,
           bottom: 0,

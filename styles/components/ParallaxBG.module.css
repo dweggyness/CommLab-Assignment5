@@ -38,9 +38,6 @@
   height: 1000px;
   z-index: 2;
 }
-.parallax__layer__0 {
-  transform: translateZ(-350px) scale(4.5);
-}
 .parallax__layer__1 {
   transform: translateZ(-250px) scale(3.5);
 }
