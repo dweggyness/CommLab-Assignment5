@@ -80,8 +80,8 @@ export default function CloudsBG() {
 
   return (
     <div style={styles.cloudContainer}>
-      {listOfClouds.map((cloud) => {
-        return <img src={cloud.img} style={{
+      {listOfClouds.map((cloud, i) => {
+        return <img src={cloud.img} key={i} style={{
           position: 'absolute',
           top: window ? window.innerHeight * cloud.y : 0,
           left: cloud.x,

@@ -1,6 +1,56 @@
+/* styles used for the parallax effect on the home page */
 
-.titleContainer {
-  height: 60vh;
+.parallax {
+  perspective: 100px;
+  height: 100vh;
+  width: 100vw;
+  overflow-x: hidden;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  right: 0;
+  bottom: 0;
+  transform: translateX(-50.5%);
+}
+.parallax__layer {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+.parallax__layer img {
+  display: block;
+  position: absolute;
+  height: 600px;
+  bottom: 0;
+}
+.parallax__layer__1 {
+  transform: translateZ(-250px) scale(3.5);
+}
+.parallax__layer__2 {
+  transform: translateZ(-200px) scale(3);
+}
+.parallax__layer__3 {
+  transform: translateZ(-150px) scale(2.5);
+}
+.parallax__layer__4 {
+  transform: translateZ(-100px) scale(2);
+}
+.parallax__layer__5 {
+  transform: translateZ(-50px) scale(1.5);
+}
+.parallax__layer__6 {
+  transform: translateZ(0px) scale(1);
+}
+
+
+
+
+/* ************ other styles ************** */
+
+.titleContainer {  
+  height: 70vh;
   width: 100vw;
   display: flex;
   flex-direction: column;
@@ -12,10 +62,11 @@
 }
 
 .text { 
+  position: relative;
   margin: 0;
   font-size: 5em;
   color: #9fe3a3;
-  z-index: 999;
+  z-index: 5;
   text-shadow: 0 1px 0 #82b085, 0 2px 0 #82b085, 0 3px 0 #82b085, 0 4px 0 #82b085, 0 5px 0 #82b085, 0 6px 0 #82b085, 0 7px 0 #82b085, 0 8px 0 #82b085, 0 9px 0 #82b085, 0 30px 20px rgba(0, 0, 0, 0.3);
 }
    
@@ -28,3 +79,36 @@
   height: 1000px;
   z-index: 2;
 }
+
+.mainContainer {
+  background: #e4e4e4;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  padding-top: 5em;
+  top: 100%;
+  left: 0;
+  right: 0;
+  height: 1000px;
+  z-index: 2;
+  overflow-y: hidden;
+  padding-left: 34px;
+}
+
+@media (max-width: 768px) {
+  .mainContainer {
+    padding-left: 0;
+  }
+}
+
+.nameContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30em;
+  max-width: 95vw;
+  background-color: #e7d895;
+  height: 8em;
+}
+
