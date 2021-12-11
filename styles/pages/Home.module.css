@@ -50,7 +50,7 @@
 /* ************ other styles ************** */
 
 .titleContainer {  
-  height: 70vh;
+  height: 80vh;
   width: 100vw;
   display: flex;
   flex-direction: column;
@@ -61,10 +61,14 @@
   overflow-y: hidden;
 }
 
-.text { 
+.titleContainer h3 {
+  font-size: 1.2rem;
+}
+
+.titleText { 
   position: relative;
   margin: 0;
-  font-size: 5em;
+  font-size: 6rem;
   color: #9fe3a3;
   z-index: 5;
   text-shadow: 0 1px 0 #82b085, 0 2px 0 #82b085, 0 3px 0 #82b085, 0 4px 0 #82b085, 0 5px 0 #82b085, 0 6px 0 #82b085, 0 7px 0 #82b085, 0 8px 0 #82b085, 0 9px 0 #82b085, 0 30px 20px rgba(0, 0, 0, 0.3);
@@ -96,19 +100,50 @@
   padding-left: 34px;
 }
 
+
+.headerContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 500px;
+  height: 150px;
+  max-width: 92vw;
+  border: 2px solid darkgray;
+  border-radius: 5px;
+  background-color: white;
+  padding-bottom: 1em;
+}
+
+
 @media (max-width: 768px) {
   .mainContainer {
     padding-left: 0;
   }
+  .headerContainer {
+    height: 120px;
+    padding-bottom: 0.5em;
+  }
 }
 
-.nameContainer {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 30em;
-  max-width: 95vw;
-  background-color: #e7d895;
-  height: 8em;
+.aboutMe {
+  font-size: 1.4rem;
+  font-weight: 400;
+  width: 400px;
+  max-width: 92vw;
+  margin: 3em 0;
 }
 
+.highlight {
+  color:#599416;
+}
+
+.headerText {
+  position: relative;
+  margin: 0;
+  font-size: 6rem;
+  color: #888;
+}
+
+.workHeader {
+  padding-bottom: 0;
+}
