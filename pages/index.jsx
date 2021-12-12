@@ -105,7 +105,7 @@ export default function Home() {
           </div>
           <div className={styles.aboutMe}>
             <p>
-              Hello! I'm Jun. I'm a <span className={styles.highlight}>Malaysian</span> sophomore at NYU Abu Dhabi.
+              Hello! I&apos;m Jun. I&apos;m a <span className={styles.highlight}>Malaysian</span> sophomore at NYU Abu Dhabi.
               Interested in CS & IM.
             </p>
             <p>
