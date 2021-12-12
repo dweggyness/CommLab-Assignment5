@@ -1,11 +1,45 @@
-import React, {useState, useRef, useEffect} from 'react';
-import styles from '../styles/components/ParallaxBG.module.css';
+import React, {useState} from 'react';
+import { FaExternalLinkAlt, FaRegCalendar, FaGithub } from 'react-icons/fa';
+import dwegstea from "/public/images/projects/dwegstea.png";
+import styles from '../styles/components/ProjectComponent.module.css';
+import Image from "next/image";
 
 export default function ProjectComponent(props) {
-
+  const { title, description, eyecatchIcon, githubLink, demoLink, date, img } = props;
   
   return (
-    <div ref={parent} className={styles.parallax}>
-    </div>
+    <section className={styles.project}>
+      {eyecatchIcon && <div className={styles.eyecatchIcon}>{eyecatchIcon}</div>}
+      <div className={styles.projectImageContainer}>
+        <Image
+          className={styles.projectImage}
+          src={img}
+          alt={`Project picture for ${title}`}
+          objectFit='contain'
+        />
+      </div>
+      <div className={styles.descriptionContainer}>
+        <div className={styles.dateContainer}>
+          <span>{date}</span>
+          <FaRegCalendar></FaRegCalendar>
+        </div>
+
+        <div className={styles.flexCol}>
+          <h3 className={styles.title}>{title}</h3>
+          <p className={styles.description}>{description}</p>
+        </div>
+
+        <div className={styles.buttonContainer}>
+          {demoLink && <a href={demoLink} target="_blank" className={styles.button}>
+            <FaExternalLinkAlt></FaExternalLinkAlt>
+            <span>Demo</span>
+          </a> }
+          {githubLink && <a href={githubLink} target="_blank" className={styles.button}>
+            <FaGithub></FaGithub>
+            <span>Github Link</span>
+          </a> }
+        </div>
+      </div>
+    </section>
   )
 }

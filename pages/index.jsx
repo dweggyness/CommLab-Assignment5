@@ -1,7 +1,11 @@
 import React, {useState, useRef, useEffect} from 'react';
 import styles from '../styles/pages/Home.module.css'
 import CloudsBG from '../components/CloudsBG.jsx'
+import ProjectComponent from '../components/ProjectComponent.jsx'
 import { FaGithub, FaLinkedin } from 'react-icons/fa';
+import { GiTeapot } from 'react-icons/gi';
+import { MdOutlineMovie } from 'react-icons/md';
+import { dwegsteaImg, commlab1Img, commlab2Img, commlab3Img, commlab4Img } from '../public/images/projects';
 
 export default function Home() {
   const scrollContainer = useRef();
@@ -27,35 +31,43 @@ export default function Home() {
     }
   };
 
+  const updateNameContainerHeight = () => {
+    const nameContainerTop = nameContainer.current.offsetTop;
+    const titleTop = titleRef.current.offsetTop;
+
+    console.log(nameContainer);
+    console.log(titleRef);
+
+    nameContainerHeight = window.innerHeight - (titleTop - nameContainerTop) + 10;
+    console.log(nameContainerHeight);
+  }
+
   useEffect(() => {
     if (nameContainer && titleRef) {
-      const nameContainerTop = nameContainer.current.getBoundingClientRect().top;
-      const titleTop = titleRef.current.getBoundingClientRect().top;
-      const titleHeight = titleRef.current.getBoundingClientRect().height;
-
-      console.log(nameContainer.current.getBoundingClientRect())
-      console.log(titleRef.current.getBoundingClientRect())
-
-      nameContainerHeight = nameContainerTop - titleTop + titleHeight / 8 ;
+      updateNameContainerHeight();
+      // update the height when the title locks into place whenever window resizes
+      window.addEventListener('resize', updateNameContainerHeight);
     }
 
     if (scrollContainer) {
       scrollContainer.current.addEventListener('scroll', handleScroll, { passive: true });
-      return () => {
-        scrollContainer.current.removeEventListener('scroll', handleScroll);
-      };
+    }
+
+    return () => {
+      window.removeEventListener('resize', () => {});
+      scrollContainer.current.removeEventListener('scroll', handleScroll);
     }
   }, [scrollContainer, nameContainer, titleRef]);
 
   return (
     <>
-      <div style={{display: lockTitle ? 'none' : 'flex' }} className={styles.titleContainer}>
+      <div style={{opacity: lockTitle ? 0 : 1 }} className={styles.titleContainer}>
         <h1 ref={titleRef} className={styles.titleText}>Jun Ming</h1>
         <h3>Welcome to my website.</h3>
         
       </div>
       <div ref={scrollContainer} className={styles.parallax}>
-        <div className={styles.navbar}>
+        <nav className={styles.navbar}>
           <a className={styles.underlineOnHover} target="_blank" href='https://github.com/dweggyness/'>
             <FaGithub className={styles.socialIcon} size='2.5em'/>
           </a>
@@ -68,7 +80,7 @@ export default function Home() {
           >
             About
           </a>
-        </div>
+        </nav>
         <CloudsBG />
         <div className={`${styles.parallax__layer} ${styles.parallax__layer__1}`}>
             <img src="./images/citylayers/cityLayer5.png" />
@@ -91,7 +103,7 @@ export default function Home() {
         <section className={styles.mainContainer}>
           <div ref={nameContainer} className={styles.headerContainer}>
             
-            <h1 style={{display: lockTitle ? 'block' : 'none' }} className={styles.titleText}>
+            <h1 style={{opacity: lockTitle ? 1 : 0 }} className={styles.titleText}>
               Jun Ming
             </h1>
           </div>
@@ -106,12 +118,71 @@ export default function Home() {
               compiling a list of the best Asian food places in Abu Dhabi.
             </p>
             <p>
-              Here is my <a href="#"><span className={styles.highlight}>resume</span></a>.
+              {`Here is my `}
+              <a href="/resume.pdf" target="_blank" className={styles.resumeHighlight}>
+                <span className={styles.highlight}>resume.</span>
+              </a>
             </p>
           </div>
-          <div className={`${styles.headerContainer} ${styles.workHeader}`}>
+          <section className={`${styles.headerContainer} ${styles.workHeader}`}>
             <h1 className={styles.headerText}>Works</h1>
-          </div>
+          </section>
+          <div className={styles.projectsContainer}>
+              <ProjectComponent 
+                title="Dwegstea Tea Blog"
+                description="A tea blog for me to write tea reviews. Uses a 3rd party CMS (Contentful) to add content! Sadly out of date :("
+                eyecatchIcon={<GiTeapot />}
+                githubLink="https://github.com/dweggyness/contentfulBlog"
+                demoLink="https://dwegstea.netlify.app/"
+                date="Sept 2020"
+                img={dwegsteaImg}
+              />
+              <ProjectComponent 
+                title="How to Resolve a Conflict"
+                description="CommLab Project 4 - Videoooo-oohh. A 3-step how-to video tutorial on how to resolve conflicts, stylized as a WikiHow page."
+                eyecatchIcon={<MdOutlineMovie/>}
+                githubLink="https://github.com/dweggyness/CommLab-Assignment4"
+                demoLink="https://dweggyness.github.io/CommLab-Assignment4/"
+                date="Nov 2021"
+                img={commlab4Img}
+              />
+              <ProjectComponent 
+                title="A Project To Die For"
+                description="CommLab Project 3 - Sound. An audio story detailing four students intent on finishing a group project... at any cost."
+                eyecatchIcon={<GiTeapot />}
+                githubLink="https://github.com/dweggyness/CommLab-Assignment3"
+                demoLink="https://dweggyness.github.io/CommLab-Assignment3/"
+                date="Nov 2021"
+                img={commlab3Img}
+              />
+              <ProjectComponent 
+                title="An Aquarium Comic"
+                description="CommLab Project 2 - Comic. A 6-panel interactive comic story on an aquarium and it's newest denizen. "
+                eyecatchIcon={<GiTeapot />}
+                githubLink="https://github.com/dweggyness/CommLab-Assignment2"
+                demoLink="https://dweggyness.github.io/CommLab-Assignment2/"
+                date="Sept 2020"
+                img={commlab2Img}
+              />
+              <ProjectComponent 
+                title="Portal Story"
+                description="CommLab Project 1 - FFMPEG. A short film recorded through Zoom, on what a world that has portals may look like."
+                eyecatchIcon={<GiTeapot />}
+                githubLink="https://github.com/dweggyness/CommLab-Assignment1"
+                demoLink="https://dweggyness.github.io/CommLab-Assignment1/index.html"
+                date="Sept 2020"
+                img={commlab1Img}
+              />
+              <ProjectComponent 
+                title="Battleships"
+                description="A full-stack battleship clone, supports online-multiplayer, or you can play against the AI!"
+                eyecatchIcon={<GiTeapot />}
+                githubLink="https://github.com/dweggyness/CommLab-Assignment1"
+                demoLink="https://dweggyness.github.io/CommLab-Assignment1/index.html"
+                date="Sept 2020"
+                img={commlab1Img}
+              />
+            </div>
         </section>
       </div>
     </>

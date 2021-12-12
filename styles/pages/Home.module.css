@@ -71,7 +71,7 @@
   font-size: 6rem;
   color: #9fe3a3;
   z-index: 5;
-  text-shadow: 0 1px 0 #82b085, 0 2px 0 #82b085, 0 3px 0 #82b085, 0 4px 0 #82b085, 0 5px 0 #82b085, 0 6px 0 #82b085, 0 7px 0 #82b085, 0 8px 0 #82b085, 0 9px 0 #82b085, 0 30px 20px rgba(0, 0, 0, 0.3);
+  text-shadow: 0 1px 0 var(--green), 0 2px 0 var(--green), 0 3px 0 var(--green), 0 4px 0 var(--green), 0 5px 0 var(--green), 0 6px 0 var(--green), 0 7px 0 var(--green), 0 8px 0 var(--green), 0 9px 0 var(--green), 0 30px 20px rgba(0, 0, 0, 0.3);
 }
    
 .contentContainer {
@@ -94,7 +94,7 @@
   top: 100%;
   left: 0;
   right: 0;
-  height: 1000px;
+  height: 2400px;
   z-index: 2;
   overflow-y: hidden;
   padding-left: 34px;
@@ -192,10 +192,26 @@
   height: 2px;
   left: 0;
   bottom: -10px;
-  background-color: #333; 
+  background-color: var(--black); 
 }
 
 .underlineOnHover:hover::after, .underlineOnHover:focus::after {
   width: 100%;
   transition: 0.2s ease;
+}
+
+.resumeHighlight {
+  position: relative;
+  text-decoration: underline;
+  text-decoration-color: var(--green);
+}
+
+.projectsContainer {
+  margin-top: 5em;
+  max-width: 95%;
+  width: 1200px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  column-gap: 0.875rem;
 }
