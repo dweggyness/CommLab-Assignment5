@@ -103,18 +103,19 @@
   top: 100%;
   left: 0;
   right: 0;
-  height: 2250px;
+  min-height: 2250px;
   z-index: 2;
   overflow-y: hidden;
   padding-left: 34px;
+  padding-bottom: 150px;
 }
 
-
+/* 
 @media (max-width: 1259px) {
   .mainContainer {
     height: 3750px;
   }
-}
+} */
 
 .headerContainer {
   display: flex;
