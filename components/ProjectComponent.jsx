@@ -1,6 +1,5 @@
-import React, {useState} from 'react';
+import React from 'react';
 import { FaExternalLinkAlt, FaRegCalendar, FaGithub } from 'react-icons/fa';
-import dwegstea from "/public/images/projects/dwegstea.png";
 import styles from '../styles/components/ProjectComponent.module.css';
 import Image from "next/image";
 
