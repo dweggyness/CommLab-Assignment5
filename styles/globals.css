@@ -13,14 +13,14 @@ body {
   font-family: Lora;
   background-color: white;
   overflow-x: hidden;
-  font-size: 14px;
+  font-size: 12px;
   width: 100vw;
 }
 
 
 @media (max-width: 768px) {
   html, body {
-    font-size: 12px;
+    font-size: 11px;
   }
 }
 
