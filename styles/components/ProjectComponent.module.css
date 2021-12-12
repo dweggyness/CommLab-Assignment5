@@ -33,6 +33,14 @@
   box-shadow: 1px -1px 0 1px var(--black), 2px -2px 0 1px var(--black), 3px -3px 0 1px var(--black), 4px -4px 0 1px var(--black), 5px -5px 0 1px var(--black), 6px -6px 0 1px var(--black);
 }
 
+
+@media (max-width: 768px) {
+  .project {
+    padding: 10px;
+  }
+}
+
+
 .projectImageContainer {
   align-self: center;
   position: relative;
