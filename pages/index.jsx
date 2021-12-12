@@ -1,6 +1,7 @@
 import React, {useState, useRef, useEffect} from 'react';
 import styles from '../styles/pages/Home.module.css'
 import CloudsBG from '../components/CloudsBG.jsx'
+import { FaGithub, FaLinkedin } from 'react-icons/fa';
 
 export default function Home() {
   const scrollContainer = useRef();
@@ -10,6 +11,11 @@ export default function Home() {
   const [lockTitle, setLockTitle] = useState(false);
 
   let nameContainerHeight = 0;
+
+  // pass this a ref to YCoord you want to scroll to
+  const scrollToAboutMe = () => {
+    scrollContainer.current.scrollTo({ top: window.innerHeight - 100, behavior: "smooth"});
+  }
 
   const handleScroll = (e) => {
     const position = e.target.scrollTop;
@@ -49,6 +55,20 @@ export default function Home() {
         
       </div>
       <div ref={scrollContainer} className={styles.parallax}>
+        <div className={styles.navbar}>
+          <a className={styles.underlineOnHover} target="_blank" href='https://github.com/dweggyness/'>
+            <FaGithub className={styles.socialIcon} size='2.5em'/>
+          </a>
+          <a className={styles.underlineOnHover} target="_blank"href='https://www.linkedin.com/in/ooi-jun-ming-1695251a9/'>
+            <FaLinkedin className={styles.socialIcon} size='2.5em'/>
+          </a>
+          <a 
+            onClick={() => scrollToAboutMe()} 
+            className={`${styles.underlineOnHover} ${styles.socialIcon} ${styles.navbarText}`}
+          >
+            About
+          </a>
+        </div>
         <CloudsBG />
         <div className={`${styles.parallax__layer} ${styles.parallax__layer__1}`}>
             <img src="./images/citylayers/cityLayer5.png" />
@@ -70,6 +90,7 @@ export default function Home() {
         </div>
         <section className={styles.mainContainer}>
           <div ref={nameContainer} className={styles.headerContainer}>
+            
             <h1 style={{display: lockTitle ? 'block' : 'none' }} className={styles.titleText}>
               Jun Ming
             </h1>
