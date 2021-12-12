@@ -10,12 +10,21 @@ export default function ProjectComponent(props) {
     <section className={styles.project}>
       {eyecatchIcon && <div className={styles.eyecatchIcon}>{eyecatchIcon}</div>}
       <div className={styles.projectImageContainer}>
-        <Image
+        {demoLink ?
+          <a href={demoLink} target="_blank" rel="noreferrer">
+            <Image
+              className={styles.projectImage}
+              src={img}
+              alt={`Project picture for ${title}`}
+              objectFit='contain'
+            />
+          </a>
+          : <Image
           className={styles.projectImage}
           src={img}
           alt={`Project picture for ${title}`}
           objectFit='contain'
-        />
+        /> }
       </div>
       <div className={styles.descriptionContainer}>
         <div className={styles.dateContainer}>
