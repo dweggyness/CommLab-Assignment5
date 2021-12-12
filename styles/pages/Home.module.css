@@ -123,7 +123,7 @@
   justify-content: center;
   width: 400px;
   height: 120px;
-  max-width: 90vw;
+  max-width: 80vw;
   border: 2px solid darkgray;
   border-radius: 5px;
   background-color: white;
@@ -136,8 +136,11 @@
     padding-left: 0;
   }
   .headerContainer {
-    height: 120px;
+    height: 90px;
     padding-bottom: 0.5em;
+  }
+  .titleText {
+    text-shadow: 0 1px 0 var(--green), 0 2px 0 var(--green), 0 3px 0 var(--green), 0 4px 0 var(--green), 0 5px 0 var(--green), 0 6px 0 var(--green), 0 30px 20px rgba(0, 0, 0, 0.3);
   }
 }
 
@@ -145,7 +148,7 @@
   font-size: 1.2rem;
   font-weight: 400;
   width: 400px;
-  max-width: 92vw;
+  max-width: 90vw;
   margin: 2em 0;
 }
 
