@@ -30,11 +30,11 @@ export default function ProjectComponent(props) {
         </div>
 
         <div className={styles.buttonContainer}>
-          {demoLink && <a href={demoLink} target="_blank" className={styles.button}>
+          {demoLink && <a href={demoLink} target="_blank" rel="noreferrer" className={styles.button}>
             <FaExternalLinkAlt></FaExternalLinkAlt>
             <span>Demo</span>
           </a> }
-          {githubLink && <a href={githubLink} target="_blank" className={styles.button}>
+          {githubLink && <a href={githubLink} target="_blank" rel="noreferrer" className={styles.button}>
             <FaGithub></FaGithub>
             <span>Github Link</span>
           </a> }
