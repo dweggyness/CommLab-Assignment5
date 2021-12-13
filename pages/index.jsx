@@ -125,15 +125,6 @@ export default function Home() {
           </section>
           <div className={styles.projectsContainer}>
             <ProjectComponent 
-              title="Dwegstea Tea Blog"
-              description="A tea blog for me to write tea reviews. Uses a 3rd party CMS (Contentful) to add content! Sadly out of date :("
-              eyecatchIcon={<GiTeapot />}
-              githubLink="https://github.com/dweggyness/contentfulBlog"
-              demoLink="https://dwegstea.netlify.app/"
-              date="Sept 2020"
-              img={dwegsteaImg}
-            />
-            <ProjectComponent 
               title="How to Resolve a Conflict"
               description="CommLab Project 4 - Videoooo-oohh. A 3-step how-to video tutorial on how to resolve conflicts, stylized as a WikiHow page."
               eyecatchIcon={<MdOutlineMovie/>}
@@ -167,15 +158,6 @@ export default function Home() {
               githubLink="https://github.com/dweggyness/CommLab-Assignment1"
               date="Sept 2021"
               img={commlab1Img}
-            />
-            <ProjectComponent 
-              title="Battleships"
-              description="A full-stack battleship clone, supports online-multiplayer, or you can play against the AI!"
-              eyecatchIcon={<GiBattleship />}
-              githubLink="https://github.com/dweggyness/battleships"
-              demoLink="https://waterbound-fighting-vessels.herokuapp.com/"
-              date="June 2020"
-              img={battleshipsImg}
             />
           </div>
           <div className={styles.footer}>
